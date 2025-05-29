@@ -823,7 +823,7 @@
         <div id="about" class="container hidden">
             <h2 class="section-title">About Parshv Foods</h2>
             <div class="about-image-container">
-                <img src="https://images.unsplash.com/photo-1467453678174-768ec283a940?ixlib=rb-1.2.1&auto=format&fit=crop&w=2134&q=80" alt="Fresh vegetables at 3:30 AM in the market" class="about-image">
+                <img src="https://img.freepik.com/free-photo/farmer-s-market-concept-with-fresh-vegetables_23-2149211771.jpg" alt="Fresh vegetables at 3:30 AM in the market" class="about-image">
                 <p class="text-center text-sm text-gray-600 mt-1">Our team selecting the freshest produce at 3:30 AM in the local market</p>
             </div>
             <p class="mb-5">Your trusted source for fresh, high-quality vegetables since 2010</p>
@@ -893,10 +893,10 @@
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
-                <a href="#home">Home</a>
-                <a href="#about">About Us</a>
-                <a href="#contact">Contact Us</a>
-                <a href="#orderHistory">My Orders</a>
+                <a href="#home" class="footer-link"><i class="fas fa-home mr-1"></i> Home</a>
+                <a href="#about" class="footer-link"><i class="fas fa-info-circle mr-1"></i> About Us</a>
+                <a href="#contact" class="footer-link"><i class="fas fa-envelope mr-1"></i> Contact Us</a>
+                <a href="#orderHistory" class="footer-link"><i class="fas fa-history mr-1"></i> My Orders</a>
             </div>
             <div class="footer-section">
                 <h3>Contact Info</h3>
@@ -953,6 +953,7 @@
         const confirmationModal = document.getElementById('confirmationModal');
         const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
         const cancelDeleteBtn = document.getElementById('cancelDeleteBtn');
+        const footerLinks = document.querySelectorAll('.footer-link');
 
         // Variables for delete functionality
         let orderToDelete = null;
@@ -1023,6 +1024,7 @@
             aboutPage.classList.add('hidden');
             contactPage.classList.add('hidden');
             orderHistoryPage.classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
         aboutLink.addEventListener('click', (e) => {
@@ -1031,6 +1033,7 @@
             aboutPage.classList.remove('hidden');
             contactPage.classList.add('hidden');
             orderHistoryPage.classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
         contactLink.addEventListener('click', (e) => {
@@ -1039,6 +1042,7 @@
             aboutPage.classList.add('hidden');
             contactPage.classList.remove('hidden');
             orderHistoryPage.classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
         historyLink.addEventListener('click', (e) => {
@@ -1051,7 +1055,40 @@
             aboutPage.classList.add('hidden');
             contactPage.classList.add('hidden');
             orderHistoryPage.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             loadCustomerOrders();
+        });
+
+        // Footer quick links functionality
+        footerLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                // Hide all pages first
+                document.querySelectorAll('.container').forEach(container => {
+                    container.classList.add('hidden');
+                });
+                
+                // Show the target page
+                if (targetElement) {
+                    targetElement.classList.remove('hidden');
+                    
+                    // Scroll to top of the page
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    
+                    // If clicking on Orders link, load orders
+                    if (targetId === '#orderHistory' && (!savedName || !savedPhone)) {
+                        alert('Please place an order first to view your order history');
+                        return;
+                    }
+                    
+                    if (targetId === '#orderHistory') {
+                        loadCustomerOrders();
+                    }
+                }
+            });
         });
 
         // Order Now button click handler
