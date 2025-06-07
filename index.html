@@ -1,12 +1,9 @@
-
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parshv Foods - Fresh Vegetables Delivery</title>
-    <!-- Favicon -->
-    <link rel="icon" href="https://page.genspark.site/v1/base64_upload/f86550fb5c75673ced2a7161e3fc44f0" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -161,7 +158,6 @@
         .btn-danger:hover {
             background-color: #c82333;
         }
-        /* New Vegetable Card Styling */
         .vegetable-list {
             display: flex;
             flex-direction: column;
@@ -268,7 +264,6 @@
             min-width: 70px;
             text-align: right;
         }
-        /* Animation for vegetable cards */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -277,7 +272,6 @@
             animation: fadeIn 0.5s ease forwards;
             opacity: 0;
         }
-        /* Staggered animation delay for cards */
         .vegetable-item:nth-child(1) { animation-delay: 0.1s; }
         .vegetable-item:nth-child(2) { animation-delay: 0.15s; }
         .vegetable-item:nth-child(3) { animation-delay: 0.2s; }
@@ -418,7 +412,6 @@
             font-size: 0.9rem;
             color: rgba(255, 255, 255, 0.8);
         }
-        /* Order View Screen Styles */
         .order-view-screen {
             display: none;
             position: fixed;
@@ -507,7 +500,6 @@
             gap: 10px;
             justify-content: space-between;
         }
-        /* Order History Styles */
         .order-history-item {
             background-color: white;
             border-radius: 10px;
@@ -570,7 +562,6 @@
             height: auto;
             object-fit: cover;
         }
-        /* Delete button for order history */
         .delete-order-btn {
             position: absolute;
             top: 15px;
@@ -585,7 +576,6 @@
         .delete-order-btn:hover {
             transform: scale(1.1);
         }
-        /* Confirmation modal for delete */
         .confirmation-modal {
             display: none;
             position: fixed;
@@ -612,7 +602,6 @@
             gap: 15px;
             margin-top: 20px;
         }
-        /* Edit Profile Modal */
         .edit-profile-modal {
             display: none;
             position: fixed;
@@ -651,6 +640,37 @@
         }
         .edit-profile-close:hover {
             color: var(--dark-text);
+        }
+        /* WhatsApp Group Box */
+        .whatsapp-box {
+            background: linear-gradient(135deg, #f5f9f5 0%, #e8f5e9 100%);
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        .whatsapp-box h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .whatsapp-box p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        .whatsapp-icon {
+            font-size: 1.8rem;
+            color: #25D366;
+            margin-bottom: 10px;
         }
         /* Improved Mobile Responsiveness */
         @media (max-width: 768px) {
@@ -727,6 +747,9 @@
             }
             .confirmation-buttons {
                 flex-direction: column;
+            }
+            .whatsapp-box {
+                padding: 20px 15px;
             }
         }
         @media (max-width: 480px) {
@@ -890,10 +913,23 @@
             </div>
         </div>
 
-        <!-- Contact Us Page -->
+        <!-- Contact Us Page with WhatsApp Group Box -->
         <div id="contact" class="container hidden">
             <h2 class="section-title">Contact Us</h2>
             <p class="text-center mb-5">Have questions or feedback? We'd love to hear from you!</p>
+            
+            <!-- WhatsApp Group Box -->
+            <div class="whatsapp-box">
+                <div class="whatsapp-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <h3><i class="fab fa-whatsapp"></i> Join Our WhatsApp Group</h3>
+                <p>Get daily prices and important announcements directly on WhatsApp</p>
+                <a href="https://chat.whatsapp.com/your-group-link" target="_blank" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Join WhatsApp Group
+                </a>
+            </div>
+            
             <div class="contact-content">
                 <div class="mb-8">
                     <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i> <strong>Address:</strong> Sanghvi Tower,Surat,Gujarat</p>
