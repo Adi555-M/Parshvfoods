@@ -18,7 +18,6 @@
             --dark-text: #263238;
             --light-text: #f5f5f5;
             --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            --whatsapp-green: #25D366;
         }
         body {
             font-family: 'Poppins', sans-serif;
@@ -642,346 +641,37 @@
         .edit-profile-close:hover {
             color: var(--dark-text);
         }
-
-        /* Enhanced WhatsApp Group Box Styling */
+        /* WhatsApp Group Box */
         .whatsapp-box {
-            background: linear-gradient(145deg, #f5f9f5 0%, #e8f5e9 50%, #f0f8f0 100%);
-            border: 2px solid transparent;
-            background-clip: padding-box;
-            border-radius: 16px;
-            padding: 35px 25px;
-            margin-bottom: 40px;
+            background: linear-gradient(135deg, #f5f9f5 0%, #e8f5e9 100%);
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
             text-align: center;
-            box-shadow: 
-                0 8px 32px rgba(37, 211, 102, 0.15),
-                0 4px 16px rgba(0, 0, 0, 0.08),
-                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             position: relative;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
         }
-
-        .whatsapp-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(37, 211, 102, 0.1),
-                transparent
-            );
-            transition: left 0.6s ease;
-        }
-
-        .whatsapp-box:hover::before {
-            left: 100%;
-        }
-
-        .whatsapp-box:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 
-                0 16px 48px rgba(37, 211, 102, 0.25),
-                0 8px 24px rgba(0, 0, 0, 0.12),
-                inset 0 1px 0 rgba(255, 255, 255, 0.9);
-        }
-
-        .whatsapp-icon-container {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-
-        .whatsapp-icon {
-            font-size: 3.5rem;
-            color: var(--whatsapp-green);
-            margin-bottom: 0;
-            display: inline-block;
-            animation: whatsappPulse 2s infinite ease-in-out;
-            transition: all 0.3s ease;
-            filter: drop-shadow(0 4px 12px rgba(37, 211, 102, 0.3));
-        }
-
-        @keyframes whatsappPulse {
-            0%, 100% {
-                transform: scale(1);
-                filter: drop-shadow(0 4px 12px rgba(37, 211, 102, 0.3));
-            }
-            50% {
-                transform: scale(1.1);
-                filter: drop-shadow(0 6px 20px rgba(37, 211, 102, 0.5));
-            }
-        }
-
-        .whatsapp-box:hover .whatsapp-icon {
-            transform: scale(1.15) rotate(5deg);
-            color: #128C7E;
-        }
-
-        .whatsapp-icon-container::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80px;
-            height: 80px;
-            background: radial-gradient(circle, rgba(37, 211, 102, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: ripple 2s infinite ease-out;
-            z-index: -1;
-        }
-
-        @keyframes ripple {
-            0% {
-                width: 0;
-                height: 0;
-                opacity: 1;
-            }
-            100% {
-                width: 120px;
-                height: 120px;
-                opacity: 0;
-            }
-        }
-
         .whatsapp-box h3 {
-            font-size: 1.6rem;
-            font-weight: 700;
+            font-size: 1.3rem;
+            font-weight: 600;
             color: var(--primary-color);
             margin-bottom: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            position: relative;
-            z-index: 2;
-            transition: all 0.3s ease;
-        }
-
-        .whatsapp-box:hover h3 {
-            color: #1b5e20;
-            transform: translateY(-2px);
-        }
-
-        .whatsapp-box h3 .fab {
-            font-size: 1.4rem;
-            animation: bounceIn 0.8s ease-out;
-        }
-
-        @keyframes bounceIn {
-            0% {
-                transform: scale(0.3);
-                opacity: 0;
-            }
-            50% {
-                transform: scale(1.1);
-            }
-            70% {
-                transform: scale(0.9);
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .whatsapp-box p {
-            margin-bottom: 25px;
-            color: #666;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            position: relative;
-            z-index: 2;
-            transition: all 0.3s ease;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .whatsapp-box:hover p {
-            color: #555;
-            transform: translateY(-1px);
-        }
-
-        .whatsapp-join-btn {
-            background: linear-gradient(135deg, var(--whatsapp-green) 0%, #128C7E 100%);
-            color: white;
-            border: none;
-            padding: 16px 32px;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 
-                0 6px 20px rgba(37, 211, 102, 0.3),
-                0 2px 8px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-            z-index: 2;
-        }
-
-        .whatsapp-join-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(255, 255, 255, 0.2),
-                transparent
-            );
-            transition: left 0.5s ease;
-        }
-
-        .whatsapp-join-btn:hover::before {
-            left: 100%;
-        }
-
-        .whatsapp-join-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 
-                0 12px 32px rgba(37, 211, 102, 0.4),
-                0 4px 16px rgba(0, 0, 0, 0.15);
-            background: linear-gradient(135deg, #128C7E 0%, #0a5d55 100%);
-        }
-
-        .whatsapp-join-btn:active {
-            transform: translateY(-1px) scale(1.02);
-        }
-
-        .whatsapp-join-btn i {
-            font-size: 1.3rem;
-            animation: shake 1s infinite ease-in-out;
-        }
-
-        @keyframes shake {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(-3deg); }
-            75% { transform: rotate(3deg); }
-        }
-
-        .whatsapp-join-btn:hover i {
-            animation: bounce 0.8s infinite ease-in-out;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-4px); }
-        }
-
-        .whatsapp-benefits {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-            opacity: 0;
-            animation: slideInUp 0.8s ease-out 0.5s forwards;
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .benefit-item {
-            display: flex;
-            align-items: center;
             gap: 10px;
-            padding: 12px;
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(46, 125, 50, 0.1);
         }
-
-        .benefit-item:hover {
-            background: rgba(255, 255, 255, 0.8);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        }
-
-        .benefit-icon {
-            color: var(--whatsapp-green);
-            font-size: 1.2rem;
-            min-width: 20px;
-        }
-
-        .benefit-text {
-            font-size: 0.95rem;
+        .whatsapp-box p {
+            margin-bottom: 20px;
             color: #555;
-            font-weight: 500;
         }
-
-        /* Mobile responsive enhancements */
-        @media (max-width: 768px) {
-            .whatsapp-box {
-                padding: 25px 20px;
-                margin-bottom: 30px;
-            }
-            
-            .whatsapp-icon {
-                font-size: 3rem;
-            }
-            
-            .whatsapp-box h3 {
-                font-size: 1.4rem;
-                flex-direction: column;
-                gap: 8px;
-            }
-            
-            .whatsapp-box p {
-                font-size: 1rem;
-            }
-            
-            .whatsapp-join-btn {
-                padding: 14px 28px;
-                font-size: 1rem;
-            }
-            
-            .whatsapp-benefits {
-                grid-template-columns: 1fr;
-                gap: 15px;
-                margin-top: 25px;
-            }
+        .whatsapp-icon {
+            font-size: 1.8rem;
+            color: #25D366;
+            margin-bottom: 10px;
         }
-
-        @media (max-width: 480px) {
-            .whatsapp-box {
-                padding: 20px 15px;
-            }
-            
-            .whatsapp-icon {
-                font-size: 2.5rem;
-            }
-            
-            .whatsapp-box h3 {
-                font-size: 1.2rem;
-            }
-            
-            .whatsapp-join-btn {
-                padding: 12px 24px;
-                font-size: 0.95rem;
-            }
-        }
-
         /* Improved Mobile Responsiveness */
         @media (max-width: 768px) {
             .navbar {
@@ -1057,6 +747,9 @@
             }
             .confirmation-buttons {
                 flex-direction: column;
+            }
+            .whatsapp-box {
+                padding: 20px 15px;
             }
         }
         @media (max-width: 480px) {
@@ -1220,27 +913,27 @@
             </div>
         </div>
 
-        <!-- Contact Us Page with Enhanced WhatsApp Group Box -->
+        <!-- Contact Us Page with WhatsApp Group Box -->
         <div id="contact" class="container hidden">
             <h2 class="section-title">Contact Us</h2>
             <p class="text-center mb-5">Have questions or feedback? We'd love to hear from you!</p>
             
+            <!-- WhatsApp Group Box -->
             <div class="whatsapp-box">
-    <h3 class="flex items-center justify-center gap-2 text-lg font-semibold text-green-700">
-        <i class="fab fa-whatsapp text-2xl text-[#25D366]"></i>
-        Stay Updated with Us on WhatsApp
-    </h3>
-    <p>Get daily prices and important announcements directly on WhatsApp</p>
-    <a href="https://chat.whatsapp.com/IRGtdbu8u7q2Ur8JktLpUh" target="_blank" class="btn btn-whatsapp">
-        <i class="fab fa-whatsapp"></i> Join WhatsApp Group
-    </a>
-</div>
-
+                <div class="whatsapp-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <h3><i class="fab fa-whatsapp"></i> Join Our WhatsApp Group</h3>
+                <p>Get daily prices and important announcements directly on WhatsApp</p>
+                <a href="https://chat.whatsapp.com/your-group-link" target="_blank" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Join WhatsApp Group
+                </a>
+            </div>
             
             <div class="contact-content">
                 <div class="mb-8">
                     <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i> <strong>Address:</strong> Sanghvi Tower,Surat,Gujarat</p>
-                    <p class="mb-2"><i class="fas fa-phone mr-2"></i> <strong>Phone:</strong> +91 9879876030</p>
+                    <p class="mb-2"><i class="fas fa-phone mr-2"></i> <strong>Phone:</strong> +91 6355532061</p>
                     <p class="mb-2"><i class="fas fa-envelope mr-2"></i> <strong>Email:</strong> parshvfoods@gmail.com</p>
                     <p class="mb-2"><i class="fas fa-clock mr-2"></i> <strong>Delivery Hours:</strong> 8AM - 11AM</p>
                 </div>
@@ -1286,7 +979,7 @@
             <div class="footer-section">
                 <h3>Contact Info</h3>
                 <p><i class="fas fa-map-marker-alt"></i> Sanghvi tower,Surat,Gujarat</p>
-                <p><i class="fas fa-phone"></i> +91 9879876030</p>
+                <p><i class="fas fa-phone"></i> +91 6355532061</p>
                 <p><i class="fas fa-envelope"></i> parshvfoods@gmail.com</p>
             </div>
         </div>
@@ -1604,7 +1297,7 @@
             const encodedMessage = encodeURIComponent(whatsappMessage);
             
             // Open WhatsApp with the message
-            window.open(`https://wa.me/919879876030?text=${encodedMessage}`, '_blank');
+            window.open(`https://wa.me/916355532061?text=${encodedMessage}`, '_blank');
             
             // Clear form
             contactForm.reset();
