@@ -1,12 +1,9 @@
-  <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parshv Foods - Fresh Vegetables Delivery</title>
-    <link rel="icon" type="image/png" href="https://page.genspark.site/v1/base64_upload/f86550fb5c75673ced2a7161e3fc44f0">
-    <link rel="shortcut icon" href="https://page.genspark.site/v1/base64_upload/f86550fb5c75673ced2a7161e3fc44f0">
-    <link rel="apple-touch-icon" href="https://page.genspark.site/v1/base64_upload/f86550fb5c75673ced2a7161e3fc44f0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -809,7 +806,7 @@
     <!-- Header Section -->
     <header class="header">
         <div class="notice-bar">
-            Free delivery on all orders! Order before 10PM And get order next day morning (8-11 AM)
+            Free delivery on all orders! Order before 11PM And get order next day morning (8-11 AM)
         </div>
         <nav class="navbar">
             <a href="#home" class="logo">
@@ -872,10 +869,10 @@
                     <i class="fas fa-search search-icon"></i>
                 </div>
                 
-                <!-- Date Tag - Static text that developer can change -->
+                <!-- Date Tag -->
                 <div class="date-tag" id="dateTag">
                     <i class="fas fa-calendar-alt"></i>
-                    <span class="date-text">Today's Fresh Selection - Sunday, 28 june 2025</span>
+                    <span class="date-text" id="currentDate">Today's Fresh Selection</span>
                 </div>
                 
                 <form id="orderForm">
@@ -925,7 +922,7 @@
                 <img src="https://images.unsplash.com/photo-1467453678174-768ec283a940?ixlib=rb-1.2.1&auto=format&fit=crop&w=2134&q=80" alt="Fresh vegetables at 3:30 AM in the market" class="about-image">
                 <p class="text-center text-sm text-gray-600 mt-1">Our team selecting the freshest produce at 3:30 AM in the local market</p>
             </div>
-            <p class="mb-5">Your trusted source for fresh, high-quality vegetables </p>
+            <p class="mb-5">Your trusted source for fresh, high-quality vegetables since 2010</p>
             <div class="flex flex-wrap gap-8">
                 <div class="flex-1 min-w-[300px]">
                     <h3 class="text-xl font-semibold text-green-700 mb-3">Our Values</h3>
@@ -953,16 +950,16 @@
             <h2 class="section-title">Contact Us</h2>
             <p class="text-center mb-5">Have questions or feedback? We'd love to hear from you!</p>
             
-            <div class="whatsapp-box">
-                <h3 class="flex items-center justify-center gap-2 text-lg font-semibold text-green-700">
-                    
-                    Stay Updated with Us on WhatsApp
-                </h3>
-                <p>Get daily prices and important announcements directly on WhatsApp</p>
-                <a href="https://chat.whatsapp.com/IRGtdbu8u7q2Ur8JktLpUh" target="_blank" class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> Join WhatsApp Group
-                </a>
-            </div>
+<div class="whatsapp-box">
+    <h3 class="flex items-center justify-center gap-2 text-lg font-semibold text-green-700">
+        <i class="fab fa-whatsapp text-2xl text-[#25D366]"></i>
+        Stay Updated with Us on WhatsApp
+    </h3>
+    <p>Get daily prices and important announcements directly on WhatsApp</p>
+    <a href="https://chat.whatsapp.com/IRGtdbu8u7q2Ur8JktLpUh" target="_blank" class="btn btn-whatsapp">
+        <i class="fab fa-whatsapp"></i> Join WhatsApp Group
+    </a>
+</div>
 
             <div class="contact-content">
                 <div class="mb-8">
@@ -1078,6 +1075,18 @@
             return now.toLocaleDateString('en-US', options);
         }
 
+        // Function to format date for display
+        function getFormattedDate() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric'
+            };
+            return now.toLocaleDateString('en-US', options);
+        }
+
         // DOM Elements
         const homeLink = document.getElementById('homeLink');
         const aboutLink = document.getElementById('aboutLink');
@@ -1116,9 +1125,16 @@
         const editName = document.getElementById('editName');
         const editAddress = document.getElementById('editAddress');
         const editPhone = document.getElementById('editPhone');
+        const currentDateElement = document.getElementById('currentDate');
 
         // Variables for delete functionality
         let orderToDelete = null;
+
+        // Function to update current date
+        function updateCurrentDate() {
+            const dateString = getFormattedDate();
+            currentDateElement.textContent = `Today's Fresh Selection - ${dateString}`;
+        }
 
         // Vegetables Data with Emojis
         const vegetables = [
@@ -1132,7 +1148,7 @@
             { name: 'દેશી દૂધી (Desi Bottle Gourd)', emoji: '☘️', price: 80, unit: 'kg', options: ['kg', 'gram'] },
             { name: 'તુરીયું (Ridge Gourd)', emoji: '🥒', price: 140, unit: 'kg', options: ['kg', 'gram'] },
             { name: 'કારેલા (Bitter Gourd)', emoji: '☘️', price: 100, unit: 'kg', options: ['kg', 'gram'] },
-            { name: 'ટિંડોળા (Ivy Gourd)', emoji: '☘️', price: 120, unit: 'kg', options: ['kg', 'gram'] },
+            { name: 'ટિંડોળા (Ivy Gourd)', emoji: '☘️', price: 180, unit: 'kg', options: ['kg', 'gram'] },
             { name: 'ચોળી (Val Beans)', emoji: '☘️', price: 160, unit: 'kg', options: ['kg', 'gram'] },
             { name: 'પાપડી (Flat Beans)', emoji: '☘️', price: 160, unit: 'kg', options: ['kg', 'gram'] },
             { name: 'તુવેર (Pigeon Peas)', emoji: '☘️', price: 180, unit: 'kg', options: ['kg', 'gram'] },
@@ -1341,6 +1357,7 @@
             // Create WhatsApp message
             let whatsappMessage = `*New Contact Message - Parshv Foods*\n\n`;
             whatsappMessage += `📅 Date & Time: ${currentDateTime}\n\n`;
+            whatsappMessage += `*Customer Details:*\n`;
             whatsappMessage += `Name: ${name}\n`;
             if (email) whatsappMessage += `Email: ${email}\n`;
             whatsappMessage += `Phone: ${phone}\n\n`;
@@ -1351,7 +1368,7 @@
             const encodedMessage = encodeURIComponent(whatsappMessage);
             
             // Open WhatsApp with the message
-            window.open(`https://wa.me/919104966280?text=${encodedMessage}`, '_blank');
+            window.open(`https://wa.me/916355532061?text=${encodedMessage}`, '_blank');
             
             // Clear form
             contactForm.reset();
@@ -1830,13 +1847,13 @@
                 // Get current date and time
                 const currentDateTime = getCurrentDateTime();
                 
-                // Create WhatsApp message with Customer Details heading
+                // Create WhatsApp message
                 const whatsappItems = items.map(item => {
                     return `${item.emoji} ${item.name} - ${item.quantity} ${item.unit} = ${item.price > 0 ? `₹${item.total.toFixed(2)}` : 'Market Price'}`;
                 });
                 
                 const message = `*New Order - Parshv Foods*\n\n📅 Order Date & Time: ${currentDateTime}\n\n*Customer Details:*\nName: ${name}\nAddress: ${address}\nPhone: ${phone}\n\n*Order Details:*\n${whatsappItems.join('\n')}\n\n${orderTotal > 0 ? `*Total: ₹${orderTotal.toFixed(2)}*` : '*Total: Market Price (to be confirmed)*'}\n\nDelivery instructions (if any):`;
-                const whatsappUrl = `https://wa.me/919104966280?text=${encodeURIComponent(message)}`;
+                const whatsappUrl = `https://wa.me/916355532061?text=${encodeURIComponent(message)}`;
                 window.open(whatsappUrl, '_blank');
                 
                 // Reset form after successful order
@@ -1884,8 +1901,12 @@
         });
 
         // Initial render and setup
+        updateCurrentDate();
         renderVegetables();
         calculateTotal();
+        
+        // Update date every minute
+        setInterval(updateCurrentDate, 60000);
     </script>
 </body>
 </html>
